@@ -240,6 +240,43 @@
     outline: none;
   }
 
+  /* Certificates */
+  .certificates-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media(max-width:600px){
+    .certificates-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  .certificate-card {
+    background: #111;
+    border-radius: 12px;
+    padding: 1.4rem 1.2rem;
+    cursor: default;
+    transition: transform 0.3s cubic-bezier(0.25,1,0.5,1), box-shadow 0.3s ease;
+    will-change: transform;
+    box-shadow:
+      0 6px 12px rgba(0, 170, 255, 0.3),
+      0 12px 20px rgba(0, 170, 255, 0.15);
+    perspective: 800px;
+    transform-style: preserve-3d;
+  }
+  .certificate-card:hover, .certificate-card:focus {
+    outline: none;
+    transform: translateY(-12px) rotateX(6deg) rotateY(6deg);
+    box-shadow:
+      0 15px 25px rgba(0, 170, 255, 0.6),
+      0 25px 40px rgba(0, 170, 255, 0.3);
+  }
+  .certificate-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
   /* Contact */
   #contact form {
     max-width: 480px;
@@ -348,53 +385,52 @@
     <div class="projects-list">
       <article class="project-card" tabindex="0" aria-labelledby="proj1-title" aria-describedby="proj1-desc">
         <!-- EDIT: Project One Title -->
+        <h3 id="proj1-title">Flickfave</h3>
+        <!-- EDIT: Project One Description -->
+        <p id="proj1-desc">A responsive web for movies rating</p>
+        <img src="flickfave.jpg" alt="Project One" />
+        <div class="project-links">
+          <!-- EDIT: Project One Source Code URL -->
+          <a href="https://github.com/ViksXD/TubesPBO" target="_blank" rel="noopener">Source</a>
+        </div>
+      </article>
+      <article class="project-card" tabindex="0" aria-labelledby="proj2-title" aria-describedby="proj2-desc">
+        <!-- EDIT: Project Two Title -->
+        <h3 id="proj2-title">Wash and Wear Laundry</h3>
+        <!-- EDIT: Project Two Description -->
+        <p id="proj2-desc">Laundry app for web.</p>
+        <img src="laundry.jpg" alt="Project Two" />
+        <div class="project-links">
+          <!-- EDIT: Project Two Source Code URL -->
+          <a href="https://github.com/ViksXD/IPPL" target="_blank" rel="noopener">Source</a>
+        </div>
+      </article>
+      <article class="project-card" tabindex="0" aria-labelledby="proj1-title" aria-describedby="proj1-desc">
+        <!-- EDIT: Project One Title -->
         <h3 id="proj1-title">Nutrack</h3>
         <!-- EDIT: Project One Description -->
-        <p id="proj1-desc">A responsive mobile and web app for nutrition tracker.</p>
+        <p id="proj1-desc">A responsive web and mobile app for nutrition tracker with AI integration.</p>
+        <img src="nutrack.jpg" alt="Project Three" />
         <div class="project-links">
-          <!-- EDIT: Project One Live Demo URL -->
-          <a href="#" target="_blank" rel="noopener">Demo</a>
           <!-- EDIT: Project One Source Code URL -->
-          <a href="#" target="_blank" rel="noopener">Source</a>
-        </div>
-      </article>
-      <article class="project-card" tabindex="0" aria-labelledby="proj2-title" aria-describedby="proj2-desc">
-        <!-- EDIT: Project Two Title -->
-        <h3 id="proj2-title">Project Two</h3>
-        <!-- EDIT: Project Two Description -->
-        <p id="proj2-desc">A weather dashboard app using OpenWeather API with elegant dark mode.</p>
-        <div class="project-links">
-          <!-- EDIT: Project Two Live Demo URL -->
-          <a href="#" target="_blank" rel="noopener">Live Demo</a>
-          <!-- EDIT: Project Two Source Code URL -->
-          <a href="#" target="_blank" rel="noopener">Source</a>
-        </div>
-      </article>
-      <article class="project-card" tabindex="0" aria-labelledby="proj2-title" aria-describedby="proj2-desc">
-        <!-- EDIT: Project Two Title -->
-        <h3 id="proj2-title">Project Two</h3>
-        <!-- EDIT: Project Two Description -->
-        <p id="proj2-desc">A weather dashboard app using OpenWeather API with elegant dark mode.</p>
-        <div class="project-links">
-          <!-- EDIT: Project Two Live Demo URL -->
-          <a href="#" target="_blank" rel="noopener">Live Demo</a>
-          <!-- EDIT: Project Two Source Code URL -->
-          <a href="#" target="_blank" rel="noopener">Source</a>
+          <a href="https://github.com/Shukonee/nutrack" target="_blank" rel="noopener">Source</a>
         </div>
       </article>
     </div>
   </section>
+
+ 
 
   <!-- SKILLS -->
   <section id="skills" aria-label="Skills section">
     <h2>Hard Skills</h2>
     <ul class="skills-list">
       <!-- EDIT: Add or remove hard skills -->
-      <li>Canva</li>
-      <li>Figma</li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>Programming Fundamentals</li>
+      <li>Data Exploration</li>
+      <li>Prompt Engineering5</li>
+      <li>Responsive Design</li>
+      <li>Git Workflow</li>
     </ul>
     <h2>Soft Skills</h2>
     <ul class="skills-list">
@@ -404,55 +440,12 @@
       <li>Problem Solving</li>
       <li>Adaptability</li>
       <li>Leadership</li>
-      <li>Responbility</li>
+      <li>Responsibility</li>
     </ul>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" aria-label="Contact me section">
-    <h2>Contact Me</h2>
-    <form id="contact-form" onsubmit="handleSubmit(event)" novalidate>
-      <input type="text" id="name" name="name" placeholder="Your Name" required minlength="2" autocomplete="name" />
-      <input type="email" id="email" name="email" placeholder="Your Email" required autocomplete="email" />
-      <textarea id="message" name="message" rows="4" placeholder="Your Message" required minlength="5"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div id="form-status" role="alert" aria-live="polite"></div>
-  </section>
 </main>
 
 <footer>
   &copy; 2024 Alviko Pradipta Harianto. All rights reserved.
 </footer>
-
-<script>
-  // Contact form validation and simulated submit
-  function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const status = document.getElementById('form-status');
-    if (!form.name.checkValidity()) {
-      status.textContent = 'Please enter your name (at least 2 characters).';
-      status.style.color = '#f66';
-      return;
-    }
-    if (!form.email.checkValidity()) {
-      status.textContent = 'Please enter a valid email address.';
-      status.style.color = '#f66';
-      return;
-    }
-    if (!form.message.checkValidity()) {
-      status.textContent = 'Please enter a message (at least 5 characters).';
-      status.style.color = '#f66';
-      return;
-    }
-    status.style.color = '#0af';
-    status.textContent = 'Sending message...';
-    setTimeout(() => {
-      status.textContent = 'Thank you for reaching out! I will respond soon.';
-      form.reset();
-    }, 1500);
-  }
-</script>
-</body>
-</html>
