@@ -240,6 +240,43 @@
     outline: none;
   }
 
+  /* Certificates */
+  .certificates-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media(max-width:600px){
+    .certificates-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  .certificate-card {
+    background: #111;
+    border-radius: 12px;
+    padding: 1.4rem 1.2rem;
+    cursor: default;
+    transition: transform 0.3s cubic-bezier(0.25,1,0.5,1), box-shadow 0.3s ease;
+    will-change: transform;
+    box-shadow:
+      0 6px 12px rgba(0, 170, 255, 0.3),
+      0 12px 20px rgba(0, 170, 255, 0.15);
+    perspective: 800px;
+    transform-style: preserve-3d;
+  }
+  .certificate-card:hover, .certificate-card:focus {
+    outline: none;
+    transform: translateY(-12px) rotateX(6deg) rotateY(6deg);
+    box-shadow:
+      0 15px 25px rgba(0, 170, 255, 0.6),
+      0 25px 40px rgba(0, 170, 255, 0.3);
+  }
+  .certificate-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
   /* Contact */
   #contact form {
     max-width: 480px;
@@ -351,6 +388,7 @@
         <h3 id="proj1-title">Nutrack</h3>
         <!-- EDIT: Project One Description -->
         <p id="proj1-desc">A responsive mobile and web app for nutrition tracker.</p>
+        <img src="nutrack.jpg" alt="Nutrack Project" />
         <div class="project-links">
           <!-- EDIT: Project One Live Demo URL -->
           <a href="#" target="_blank" rel="noopener">Demo</a>
@@ -363,18 +401,7 @@
         <h3 id="proj2-title">Project Two</h3>
         <!-- EDIT: Project Two Description -->
         <p id="proj2-desc">A weather dashboard app using OpenWeather API with elegant dark mode.</p>
-        <div class="project-links">
-          <!-- EDIT: Project Two Live Demo URL -->
-          <a href="#" target="_blank" rel="noopener">Live Demo</a>
-          <!-- EDIT: Project Two Source Code URL -->
-          <a href="#" target="_blank" rel="noopener">Source</a>
-        </div>
-      </article>
-      <article class="project-card" tabindex="0" aria-labelledby="proj2-title" aria-describedby="proj2-desc">
-        <!-- EDIT: Project Two Title -->
-        <h3 id="proj2-title">Project Two</h3>
-        <!-- EDIT: Project Two Description -->
-        <p id="proj2-desc">A weather dashboard app using OpenWeather API with elegant dark mode.</p>
+        <img src="projecttwo.jpg" alt="Project Two" />
         <div class="project-links">
           <!-- EDIT: Project Two Live Demo URL -->
           <a href="#" target="_blank" rel="noopener">Live Demo</a>
@@ -385,16 +412,33 @@
     </div>
   </section>
 
+  <!-- CERTIFICATES -->
+  <section id="certificates" aria-label="Certificates section">
+    <h2>Certificates</h2>
+    <div class="certificates-list">
+      <article class="certificate-card">
+        <img src="certificate1.jpg" alt="Certificate 1" />
+        <h3>Certificate Title 1</h3>
+        <p>Description of the certificate.</p>
+      </article>
+      <article class="certificate-card">
+        <img src="certificate2.jpg" alt="Certificate 2" />
+        <h3>Certificate Title 2</h3>
+        <p>Description of the certificate.</p>
+      </article>
+    </div>
+  </section>
+
   <!-- SKILLS -->
   <section id="skills" aria-label="Skills section">
     <h2>Hard Skills</h2>
     <ul class="skills-list">
       <!-- EDIT: Add or remove hard skills -->
-      <li>Canva</li>
-      <li>Figma</li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>CSS / HTML5</li>
+      <li>Responsive Design</li>
+      <li>Git & GitHub</li>
     </ul>
     <h2>Soft Skills</h2>
     <ul class="skills-list">
@@ -404,7 +448,7 @@
       <li>Problem Solving</li>
       <li>Adaptability</li>
       <li>Leadership</li>
-      <li>Responbility</li>
+      <li>Responsibility</li>
     </ul>
   </section>
 
@@ -436,23 +480,4 @@
       status.style.color = '#f66';
       return;
     }
-    if (!form.email.checkValidity()) {
-      status.textContent = 'Please enter a valid email address.';
-      status.style.color = '#f66';
-      return;
-    }
-    if (!form.message.checkValidity()) {
-      status.textContent = 'Please enter a message (at least 5 characters).';
-      status.style.color = '#f66';
-      return;
-    }
-    status.style.color = '#0af';
-    status.textContent = 'Sending message...';
-    setTimeout(() => {
-      status.textContent = 'Thank you for reaching out! I will respond soon.';
-      form.reset();
-    }, 1500);
-  }
-</script>
-</body>
-</html>
+    if (!form
