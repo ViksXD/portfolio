@@ -267,6 +267,12 @@
     0%,100%{opacity:.22;}
     50%{opacity:.33;}
   }
+  /* CSS OPTIMIZATION: Add this to your <style> section for scroll alignment */
+  /*
+  header h1 {
+    scroll-margin-top: 120px;
+  }
+  */
 </style>
 </head>
 <body>
@@ -615,5 +621,33 @@ spotlightEffect('.skills-list li');
       setTimeout(showPortfolio,700);
       return;
     }
-    if (!form
->>>>>>> 9951b719811b3a0b039ef3c8dd9877bd6077a2b8
+    typeLine(lines[idx],()=>{
+      idx++;
+      setTimeout(nextLine,350);
+    });
+  }
+  function showPortfolio(){
+    terminalHero.classList.add('hide');
+    setTimeout(()=>{
+      mainPortfolio.classList.add('show');
+      // Scroll to the name section (header h1) with offset for better centering
+      const nameEl=document.querySelector('header h1');
+      if(nameEl){
+        // Use scroll-margin-top for better positioning (set via CSS, not JS)
+        nameEl.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    },600);
+  }
+  skipBtn.addEventListener('click',()=>{
+    stopped=true;
+    showPortfolio();
+  });
+  // Start typing animation
+  linesEl.innerHTML="";
+  idx=0;stopped=false;cursorVisible=true;
+  blinkCursor();
+  nextLine();
+})();
+</script>
+</body>
+</html>
