@@ -615,25 +615,5 @@ spotlightEffect('.skills-list li');
       setTimeout(showPortfolio,700);
       return;
     }
-    typeLine(lines[idx],()=>{
-      idx++;
-      setTimeout(nextLine,600+Math.random()*300);
-    });
-  }
-  function showPortfolio(){
-    terminalHero.classList.add('hide');
-    setTimeout(()=>{mainPortfolio.classList.add('show');},500);
-  }
-  skipBtn.addEventListener("click",function(){
-    stopped=true;
-    stopCursor();
-    showPortfolio();
-  });
-  linesEl.innerHTML="";
-  blinkCursor();
-  setTimeout(nextLine,600);
-})();
-</script>
-</body>
-</html>
-
+    if (!form
+>>>>>>> 9951b719811b3a0b039ef3c8dd9877bd6077a2b8
